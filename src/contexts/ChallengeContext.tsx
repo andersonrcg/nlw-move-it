@@ -36,7 +36,23 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
     useEffect(() => {
         Notification.requestPermission();
+
+        const challengesData = localStorage.getItem('Challenges')
+        if(challengesData !== undefined){
+            const jsonData = JSON.parse(challengesData)
+            setLevel(jsonData.level)
+            setCurrentExperience(jsonData.currentExperience)
+            setChallengesCompleted(jsonData.challengesCompleted)
+        }
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('Challenges', JSON.stringify({
+            level,
+            currentExperience,
+            challengesCompleted
+        }))
+    }, [level, currentExperience, challengesCompleted])
 
     function levelUp() {
         setLevel(level + 1);
@@ -57,7 +73,7 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
         }
     }
 
-    function completeChallenge() {
+    function  completeChallenge() {
         if(!activeChallenge){
             return;
         }

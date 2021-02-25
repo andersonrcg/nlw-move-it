@@ -41,7 +41,6 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     }
 
     useEffect(() => {
-        console.log(time)
         if(isActive && time >= 1) {
             countdownTimeout = setTimeout(() => {
                 setTime(time - 1);
