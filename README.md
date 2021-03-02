@@ -5,7 +5,7 @@ O Move.it é uma aplicação que tem o objetivo de ajudar pessoas que passam mui
 
 ### Demonstração:
 Você pode visualizar e testar a aplicação em tempo real, basta acesse o link: <br />
-[https://moveit-nlw-4-khaki.vercel.app/](https://moveit-nlw-4-khaki.vercel.app/)
+[https://moveit-lyart-two.vercel.app/](https://moveit-lyart-two.vercel.app/)
 
 ### Recursos usados 
 
@@ -20,7 +20,7 @@ Você pode visualizar e testar a aplicação em tempo real, basta acesse o link:
 Tenha certeza de que o git foi instalado, e digite no CMD ou Terminal:
 
 ```bash
-git clone git@github.com:liara987/nlw-04-react-moveit-next.git
+git clone git@github.com:andersonrcg/nlw-move-it.git
 ```
 
 ## `Passo 2` - Instale softwares necessários para o projeto
@@ -90,7 +90,7 @@ vercel --prod
 
 ### Iniciar ciclo
 
-![](/public/screenshots/novo-start.png)
+![](/public/screenshots/start.png)
 
 ### Novo desafio
 
