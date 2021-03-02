@@ -1,9 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { CountdownContext } from '../contexts/CountdowndContext';
 import styles from '../styles/components/Countdown.module.css'
 
 export function Countdown() {
+    const [width, setWidth] = useState(100);
+
     const { 
+        durationChallenge,
         minutes,
         seconds, 
         hasFinished, 
@@ -12,8 +15,16 @@ export function Countdown() {
         startCountdown 
     } = useContext(CountdownContext);
 
+    useEffect(() => {
+        var resultado = 100 * minutes+seconds / durationChallenge;
+        if(resultado !== undefined)
+            setWidth(resultado*100)
+    }, [minutes, seconds])
+
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
+
+    const buttonActive = useRef();
 
     return (
         <div>
@@ -40,11 +51,13 @@ export function Countdown() {
                 <>
                     {isActive ? (
                         <button
+                            ref={buttonActive}
                             type="button"
                             className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
                             onClick={resetCountdown}
                         >
                             Abandonar ciclo
+                            <div style={{width: `${width}%`}}></div>
                         </button>
                     ) : (
                         <button

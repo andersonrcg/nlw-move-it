@@ -1,35 +1,29 @@
 import Head from 'next/head';
+import styles from "../styles/pages/Login.module.css";
 
-import { CompletedChallenges } from "../components/CompletedChallenges";
-import { Countdown } from "../components/Countdown";
-import { ExperienceBar } from "../components/ExperienceBar";
-import { Profile } from "../components/Profile";
-import { ChallengeBox } from "../components/ChallengeBox";
-import { CountdownProvider } from '../contexts/CountdowndContext';
-
-import styles from "../styles/pages/Home.module.css";
-
-export default function Home() {
+export default function Login() {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Início | move.it</title>
-      </Head>
+      <div>
+        <div>
+          <img src="/logo-full-white.svg" alt="Move.it" />
+          <h1>Bem-vindo</h1>
 
-      <ExperienceBar />
+          <div className={styles.githubButton}>
+            <img src="/icons/github.svg" alt="Github" />
+            <span>
+              Faça login com seu Github<br /> para começar
+          </span>
+          </div>
 
-      <CountdownProvider>
-        <section>
-          <div>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
+          <div className={styles.loginForm}>
+            <input type="text" className={styles.loginInput} placeholder="Digite seu username" />
+            <a href="/home" className={styles.loginButton}>
+              <img src="/icons/arrow-right.svg" alt="->" />
+            </a>
           </div>
-          <div>
-            <ChallengeBox />
-          </div>
-        </section>
-      </CountdownProvider>
+        </div>
+      </div>
     </div>
   )
 }

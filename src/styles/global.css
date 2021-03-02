@@ -16,6 +16,7 @@
     --blue: #5965E0;
     --blue-dark: #4953B8;
     --blue-twitter: #2AA9E0;
+    --text-blue: #B2B9FF;
 }
 
 @media(max-width: 1080px){
@@ -48,6 +49,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -55,4 +60,8 @@ a {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+}
+
+body .animation > div {
+    width: 100%;
 }
